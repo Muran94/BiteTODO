@@ -6,15 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mini Task</title>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reseter.css" />
   <link rel="stylesheet" href="./assets/styles.css">
   <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
   <div id="app">
-    <h1>{{ title }}</h1>
+    <task-in-progress :task="taskInProgress" @task-completed="updateTask"></task-in-progress>
+    <task-form @task-submitted="addTask"></task-form>
   </div>
   
   <!-- Import App -->
   <script src="main.js"></script>
+
+  <!-- Import Components -->
+  <script src="./components/TaskInProgress.js"></script>
+  <script src="./components/TaskForm.js"></script>
+
+  <!-- Mount App -->
+  <script> 
+    const mountedApp = app.mount('#app')
+  </script>
 </body>
 </html>
